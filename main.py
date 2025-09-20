@@ -4,7 +4,7 @@ import requests
 st.header("Corrector de técnica")
 
 
-link = ""
+link = "https://immaculate-technique-408620506757.us-central1.run.app"
 st.subheader("Sube un video de senatdilla")
 bytes_data = None
 upload = st.file_uploader("Upload video")
