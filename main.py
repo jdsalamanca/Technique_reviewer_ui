@@ -4,7 +4,7 @@ import requests
 st.header("Corrector de técnica")
 
 
-link = "https://immaculate-technique-408620506757.us-central1.run.app"
+link = "https://immaculate-technique-408620506757.us-central1.run.app/review"
 st.subheader("Sube un video de senatdilla")
 bytes_data = None
 upload = st.file_uploader("Upload video")
@@ -15,7 +15,9 @@ if bytes_data:
   correct = st.button("Corregir tecnica")
   feedback = ""
   if correct:
-    response = requests.post(url=link, file=bytes_data)
+    payload = {"exercise": "Squat"}
+    file = {"file": bytes_data}
+    response = requests.post(url=link, data=payload, file=file, timeout=300)
     if "feedback" in response.json():
       feedback  = response.json()["feedback"]
     else:
